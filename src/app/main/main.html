@@ -1,0 +1,26 @@
+<div ng-controller="MainController">
+  <md-content class="md-padding">
+    <md-nav-bar md-no-ink-bar="disableInkBar" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+      <md-nav-item md-nav-click="goto('classlist')" name="YogaClassList" >
+        Yoga Class List
+      </md-nav-item>
+      <md-nav-item md-nav-click="goto('page2')" name="YogaPoseList" >
+        Yoga Pose List
+      </md-nav-item>
+      <md-nav-item md-nav-click="goto('page3')" name="YogaTeachersList">
+        Yoga Teachers List
+      </md-nav-item>
+    </md-nav-bar>
+
+    <!-- <div >
+      External content for `<span>{{currentNavItem}}</span>`.
+    </div> -->
+
+    <!-- <md-checkbox ng-model="disableInkBar">Disable Ink Bar</md-checkbox>
+
+    <md-checkbox ng-model="secondTabDisabled" aria-label="Disable Second Tab" style="margin: 5px;">
+      Disable Second Tab
+    </md-checkbox> -->
+
+  </md-content>
+</div>
