@@ -3,6 +3,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../lib/node_modules/angular-material/angular-material.min.css">
+  <link rel="stylesheet" href="custom.css">
   <script src="../lib/angular.min.js"></script>
   <script src="../lib/node_modules/angular-animate/angular-animate.min.js"></script>
   <script src="../lib/node_modules/angular-aria/angular-aria.min.js"></script>
@@ -17,6 +18,11 @@
 </head>
 <body>
         <h1>Yoga Class App</h1>
+        <div  ng-controller="MainController" >
+        <md-button class="btn1" ng-click="home();"> Home
+          
+        </md-button>
+        </div>
         <div ng-view></div>
 </body>
 </html>

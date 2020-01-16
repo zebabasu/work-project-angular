@@ -6,7 +6,12 @@
 function MainController($scope, $interval, $location) {
 
   $scope.goto = function(page) {
+      console.log(page);
       $location.path(page);
+  };
+  $scope.home = function() {
+      
+      $location.path('main');
   };
 
       }
