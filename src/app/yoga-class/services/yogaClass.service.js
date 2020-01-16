@@ -10,6 +10,7 @@ function YogaClassService($http) {
                              return response.data;
                           });
         };
-  return classlist;
-}
+  return {classlist:classlist
+    };
+  }
 }());
