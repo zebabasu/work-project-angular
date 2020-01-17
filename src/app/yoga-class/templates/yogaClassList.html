@@ -1,9 +1,17 @@
 <div ng-include="'app/main/main.html'"></div>
 <div ng-controller="YogaClassController">
+<div style="margin-left:10px">
+    <table cellpadding="10">
+      <tr  class="trst1" ng-repeat="class in classlist">
+        <td class="tdst1" ng-click="" >
+          {{ class.CLASSNAME }}
+        </td>
+      </tr>
+    </table>
+ </div>
     <div >
-      Yoga Class List
+
+        <button type="button" class="addItembutton">Create New Class</button>
+
     </div>
-    <div  ng-controller="YogaClassController" >
-    </div>
-    
 </div>

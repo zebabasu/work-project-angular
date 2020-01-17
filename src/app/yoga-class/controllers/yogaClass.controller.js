@@ -7,6 +7,7 @@ function YogaClassController($scope, $http, YogaClassService) {
 
   var onClassList = function(data){
             $scope.classlist = data;
+            console.log(data);
   };
   var onError = function(reason){
           $scope.error = reason;
