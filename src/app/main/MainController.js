@@ -13,5 +13,5 @@ function MainController($scope, $interval, $location) {
       $location.path('main');
   };
 
-      }
+}
 }());

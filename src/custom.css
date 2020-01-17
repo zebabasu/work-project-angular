@@ -54,6 +54,14 @@
 .tdst1{
     font-size: 15px;
 }
+.detailsfontheader{
+  margin-left:25px;
+  font-size: 20px;
+}
+.detailsfont{
+  margin-left:25px;
+  font-size: 15px;
+}
 .active, .tdst1:hover {
   background-color: #ccc;
 }

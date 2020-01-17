@@ -1,6 +1,11 @@
 <div ng-include="'app/main/main.html'"></div>
 <div ng-controller="ClassDetailsController">
-    <div >
-      yoga class details
+  <div class="detailsfontheader">
+    <p>{{classdetails.CLASSNAME}}</p>
+  </div>
+    <div class="detailsfont">
+
+      <p>Teacher : {{classdetails.YOGATEACHER_NAME}}</p>
+
     </div>
 </div>
