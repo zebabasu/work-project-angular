@@ -6,9 +6,13 @@
                 templateUrl: "app/main/main.html",
                 controller: "MainController"
             })
-            .when("/classlist", {
+            .when("/classes", {
                 templateUrl: "app/yoga-class/templates/yogaClassList.html",
                 controller: "YogaClassController"
+            })
+            .when("/class/:id", {
+                templateUrl: "app/yoga-class/templates/yogaClassDetails.html",
+                controller: "ClassDetailsController"
             })
             .otherwise({redirectTo:"/main"});
     });

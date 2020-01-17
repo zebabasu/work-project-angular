@@ -10,8 +10,15 @@ function YogaClassService($http) {
                              return response.data;
                           });
         };
+  var classdetails = function(id){
+              return $http.get("http://localhost:8000/yogaclass/yogaclasses"+"/"+id)
+                          .then(function(response){
+                             return response.data;
+                          });
+        };
   return {
-      classlist:classlist
+      classlist:classlist,
+      classdetails:classdetails
     };
   }
 }());
