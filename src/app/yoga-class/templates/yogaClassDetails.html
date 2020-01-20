@@ -1,11 +1,18 @@
 <div ng-include="'app/main/main.html'"></div>
 <div ng-controller="ClassDetailsController">
   <div class="detailsfontheader">
-    <p>{{classdetails.CLASSNAME}}</p>
+    <p>{{classdetails[0].CLASSNAME}}</p>
   </div>
     <div class="detailsfont">
 
-      <p>Teacher : {{classdetails.YOGATEACHER_NAME}}</p>
+      <p>Teacher : {{classdetails[0].YOGATEACHER_NAME}}</p>
 
     </div>
+    <div>
+    <ul>
+        <li ng-repeat="class in classdetails">
+            <img ng-src="{{ class.IMAGEPATH }}" />
+        </li>
+  <ul>
+</div>
 </div>

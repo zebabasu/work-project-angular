@@ -2,19 +2,27 @@
   angular.module('YogaClassApp', ['ngMaterial', 'ngMessages', 'ngRoute', 'ngResource'])
   .config(function($routeProvider){
         $routeProvider
-            .when("/main", {
-                templateUrl: "app/main/main.html",
+            .when("/welcome", {
+                templateUrl: "app/main/welcome.html",
                 controller: "MainController"
             })
             .when("/classes", {
                 templateUrl: "app/yoga-class/templates/yogaClassList.html",
                 controller: "YogaClassController"
             })
+            .when("/poses", {
+                templateUrl: "app/yoga-pose/templates/yoga-poses.html",
+                controller: "YogaClassController"
+            })
+            .when("/teachers", {
+                templateUrl: "app/yoga-teacher/templates/yoga-teachers.html",
+                controller: "YogaClassController"
+            })
             .when("/class/:id", {
                 templateUrl: "app/yoga-class/templates/yogaClassDetails.html",
                 controller: "ClassDetailsController"
             })
-            .otherwise({redirectTo:"/main"});
+            .otherwise({redirectTo:"/welcome"});
     });
 
 }());

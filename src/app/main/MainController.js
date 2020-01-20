@@ -10,7 +10,7 @@ function MainController($scope, $interval, $location) {
   };
   $scope.home = function() {
 
-      $location.path('main');
+      $location.path('welcome');
   };
 
 }
