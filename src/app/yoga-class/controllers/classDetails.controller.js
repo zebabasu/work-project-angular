@@ -6,6 +6,7 @@
 function ClassDetailsController($scope, $http,  $routeParams, YogaClassService) {
   var onClassDetails = function(data){
           $scope.classdetails = data;
+          
 
   };
   var onError = function(reason){

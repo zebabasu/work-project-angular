@@ -9,9 +9,9 @@
 
     </div>
     <div>
-    <ul>
-        <li ng-repeat="class in classdetails">
-            <img ng-src="{{ class.IMAGEPATH }}" />
+    <ul style="list-style: none;">
+        <li style="float: left;display:inline-block; padding: 10px;" ng-repeat="class in classdetails">
+            <img height="150" width="100" ng-src="app\img\pose\{{ class.IMAGEPATH }}" title="{{class.POSENAME}}"" />
         </li>
   <ul>
 </div>
