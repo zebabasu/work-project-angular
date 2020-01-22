@@ -10,6 +10,10 @@
                 templateUrl: "app/yoga-class/templates/yogaClassList.html",
                 controller: "YogaClassController"
             })
+            .when("/new-class", {
+                templateUrl: "app/yoga-class/templates/newYogaClass.html",
+                controller: "EditClassController"
+            })
             .when("/poses", {
                 templateUrl: "app/yoga-pose/templates/yoga-poses.html",
                 controller: "YogaClassController"

@@ -8,8 +8,12 @@ function YogaClassController($scope, $location, YogaClassService) {
   $scope.goto = function(page, id) {
 
         $location.path(page+"/"+id);
-        
+
   };
+  $scope.createClass = function() {
+
+            $location.path('/new-class');
+  }
 
   var onClassList = function(data){
           $scope.classlist = data;

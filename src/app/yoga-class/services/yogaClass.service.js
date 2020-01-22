@@ -16,9 +16,23 @@ function YogaClassService($http) {
                              return response.data;
                           });
         };
+  var saveClass = function(yogaClass){
+              return $http.post("http://localhost:8000/yogaclass/yogaclasses", yogaClass)
+                          .then(function(response){
+                             return response.data;
+                          });
+        };
+  var poseList = function(){
+              return $http.get("http://localhost:8000/yogaclass/yogaposes")
+                        .then(function(response){
+                           return response.data;
+                        });
+  }
   return {
       classlist:classlist,
-      classdetails:classdetails
+      classdetails:classdetails,
+      saveClass:saveClass,
+      poseList:poseList
     };
   }
 }());
