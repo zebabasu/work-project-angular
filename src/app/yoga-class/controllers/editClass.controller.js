@@ -5,7 +5,8 @@
 
 function EditClassController($scope, $location, YogaClassService) {
   $scope.yogaClass = {};
-  $scope.newYogaClassPoses = {};
+  $scope.selectedPoses = [];
+
   var onPoseList = function(data){
           $scope.poseList = data;
   };
@@ -13,6 +14,8 @@ function EditClassController($scope, $location, YogaClassService) {
           $scope.error = reason;
   };
   $scope.saveClass = function(path, yogaClass, newClassForm){
+    yogaClass.poseIdList = $scope.selectedPoses;
+    console.log(yogaClass);
       if(newClassForm.$valid){
         YogaClassService.saveClass(yogaClass)
                         .then(function(response) {
@@ -23,13 +26,21 @@ function EditClassController($scope, $location, YogaClassService) {
 
 
   };
+  $scope.toggle = function (item, list) {
+        var idx = list.indexOf(item);
+        if (idx > -1) {
+          list.splice(idx, 1);
+        }
+        else {
+          list.push(item);
+        }
+  };
   $scope.cancelClass = function() {
           $location.path("/classes");
   };
-  $scope.poseList = function(){
-      YogaClassService.poseList()
+  YogaClassService.poseList()
                       .then(onPoseList, onError);
-  };
+
 
 }
 }());

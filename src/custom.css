@@ -100,3 +100,11 @@ fieldset {
   padding-right: 0.75em;
   border: none;
 }
+.panel-body {max-height:400px; overflow-y: scroll;
+  width: 250px;
+  white-space: nowrap;
+  layout:overflow
+  .card {
+    display: inline-block;
+  }
+}

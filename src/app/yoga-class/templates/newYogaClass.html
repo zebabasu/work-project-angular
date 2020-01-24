@@ -6,24 +6,33 @@
       </div>
 
       <form name="newClassForm">
-        <fieldset>
-          <label class="detailsfont" for="className">Class Name:</label>
-          <input class="detailsfont" id="className" type="text" required ng-model="yogaClass.className" placeholder="Name of your class..." />
-          <multiselect class="input-xlarge" multiple="true"
-              ng-model="newYogaClassPoses"
-              options="pose.POSENAME for pose in poseList"
-              change="selected()" >
-          </multiselect>
-        </fieldset>
+          <fieldset>
+            <label class="detailsfont" for="className">Class Name:</label>
+            <input class="detailsfont" name="className" id="className" type="text" required ng-model="yogaClass.className" placeholder="Name of your class..." />
+              <br />
+              <br />
+                <aria-label class="detailsfont" for="selectPoses">Select Poses:</aria-label>
+                <br />
+                <br />
+              <div id="selectPoses" name="selectPoses" class="panel-body">
+                  <div style="margin-left: 35px;" ng-repeat="pose in poseList" >
+                    <md-checkbox ng-value="pose.ID" aria-label="Close" ng-click="toggle(pose.ID, selectedPoses)">
+                    <img height="100" width="75" ng-src="app\img\pose\{{ pose.IMAGEPATH }}"
+                    </md-checkbox>
+                  </div>
 
+              </div>
+
+        </fieldset>
         <br />
         <br />
         <div >
-          <button class="button" type="submit" ng-disabled="newClassForm.$invalid" ng-click="saveClass('class', yogaClass, newClassForm)">Save</button>
+          <button class="button" type="submit" ng-disabled="newClassForm.className.$invalid" ng-click="saveClass('class', yogaClass, newClassForm)">Save</button>
           <button class="button" type="button" ng-click="cancelClass()" >Cancel</button>
         </div>
 
 
       </form>
+
     </div>
 </div>
