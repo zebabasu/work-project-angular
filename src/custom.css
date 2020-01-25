@@ -101,10 +101,17 @@ fieldset {
   border: none;
 }
 .panel-body {max-height:400px; overflow-y: scroll;
-  width: 250px;
-  white-space: nowrap;
-  layout:overflow
-  .card {
-    display: inline-block;
-  }
+  overflow-x:hidden;
+  width: 100%;
+  padding : 5px;
+  display : inline-block;
+  min-width: 100px;
+  min-height: 50px;
+}
+.box {
+    padding : 5px;
+    display : inline-block;
+    min-width: 100px;
+    min-height: 50px;
+
 }

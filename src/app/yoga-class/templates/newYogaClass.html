@@ -15,7 +15,7 @@
                 <br />
                 <br />
               <div id="selectPoses" name="selectPoses" class="panel-body">
-                  <div style="margin-left: 35px;" ng-repeat="pose in poseList" >
+                  <div class="box" style="margin-left: 35px;" ng-repeat="pose in poseList" >
                     <md-checkbox ng-value="pose.ID" aria-label="Close" ng-click="toggle(pose.ID, selectedPoses)">
                     <img height="100" width="75" ng-src="app\img\pose\{{ pose.IMAGEPATH }}"
                     </md-checkbox>

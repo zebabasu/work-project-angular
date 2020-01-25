@@ -8,11 +8,10 @@
       <p>Teacher : {{classdetails[0].YOGATEACHER_NAME}}</p>
 
     </div>
-    <div>
-    <ul style="list-style: none;">
-        <li style="float: left;display:inline-block; padding: 10px;" ng-repeat="class in classdetails">
-            <img height="150" width="100" ng-src="app\img\pose\{{ class.IMAGEPATH }}" title="{{class.POSENAME}}"" />
-        </li>
-    <ul>
+<div id="selectPoses" name="selectPoses" class="panel-body">
+    <div  class="box" ng-repeat="class in classdetails">
+      <img height="150" width="100" ng-src="app\img\pose\{{ class.IMAGEPATH }}" title="{{class.POSENAME}}"" />
+      </div>
+</div>
 </div>
 </div>

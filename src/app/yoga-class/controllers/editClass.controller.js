@@ -14,8 +14,7 @@ function EditClassController($scope, $location, YogaClassService) {
           $scope.error = reason;
   };
   $scope.saveClass = function(path, yogaClass, newClassForm){
-    yogaClass.poseIdList = $scope.selectedPoses;
-    console.log(yogaClass);
+      yogaClass.poseIdList = $scope.selectedPoses;
       if(newClassForm.$valid){
         YogaClassService.saveClass(yogaClass)
                         .then(function(response) {
