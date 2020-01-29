@@ -1,17 +1,19 @@
 <div ng-include="'app/main/main.html'"></div>
 <div ng-controller="ClassDetailsController">
-  <div class="detailsfontheader">
-    <p>{{classdetails[0].CLASSNAME}}</p>
-  </div>
-    <div class="detailsfont">
-
-      <p>Teacher : {{classdetails[0].YOGATEACHER_NAME}}</p>
-
+    <div class="detailsfontheader">
+      {{classdetails[0].CLASSNAME}}
+      <button class="button" type="submit" ng-disabled="newClassForm.className.$invalid" ng-click="editClass('edit-class', classdetails[0].ID)">Edit Class</button>
+      <button class="button" type="button" ng-click="cancelClass()" >Cancel</button>
     </div>
-<div id="selectPoses" name="selectPoses" class="panel-body">
-    <div  class="box" ng-repeat="class in classdetails">
-      <img height="150" width="100" ng-src="app\img\pose\{{ class.IMAGEPATH }}" title="{{class.POSENAME}}"" />
-      </div>
-</div>
-</div>
-</div>
+
+  </div>
+  <div class="detailsfont">
+
+    <p>Teacher : {{classdetails[0].YOGATEACHER_NAME}}</p>
+
+  </div>
+  <div id="selectPoses" name="selectPoses" class="panel-body">
+      <div  class="box" ng-repeat="class in classdetails">
+        <img height="150" width="100" ng-src="app\img\pose\{{ class.IMAGEPATH }}" title="{{class.POSENAME}}"" />
+        </div>
+  </div>

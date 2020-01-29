@@ -12,6 +12,10 @@
             })
             .when("/new-class", {
                 templateUrl: "app/yoga-class/templates/newYogaClass.html",
+                controller: "NewClassController"
+            })
+            .when("/edit-class/:id", {
+                templateUrl: "app/yoga-class/templates/editYogaClass.html",
                 controller: "EditClassController"
             })
             .when("/poses", {

@@ -1,28 +1,14 @@
 (function(){
   angular
     .module('YogaClassApp')
-    .controller('EditClassController', EditClassController);
+    .controller('NewClassController', NewClassController);
 
-function EditClassController($scope, $location, $routeParams, YogaClassService) {
+function NewClassController($scope, $location, YogaClassService) {
   $scope.yogaClass = {};
   $scope.selectedPoses = [];
 
-  $scope.existingPoses = [];
-  $scope.classdetails = {};
-  $scope.updatedClass = {};
-  var onClassDetails = function(data){
-
-          $scope.classdetails = data;
-          YogaClassService.poseList()
-                              .then(onPoseList, onError);
-          angular.forEach($scope.classdetails, function (value, key) {
-              $scope.existingPoses.push(value.YOGA_POSE_ID);
-          });
-  };
-  
   var onPoseList = function(data){
           $scope.poseList = data;
-
   };
   var onError = function(reason){
           $scope.error = reason;
@@ -40,7 +26,6 @@ function EditClassController($scope, $location, $routeParams, YogaClassService) 
 
   };
   $scope.toggle = function (item, list) {
-
         var idx = list.indexOf(item);
         if (idx > -1) {
           list.splice(idx, 1);
@@ -48,16 +33,13 @@ function EditClassController($scope, $location, $routeParams, YogaClassService) 
         else {
           list.push(item);
         }
-
   };
   $scope.cancelClass = function() {
           $location.path("/classes");
   };
+  YogaClassService.poseList()
+                      .then(onPoseList, onError);
 
-  var classid = $routeParams.id;
-
-  YogaClassService.classdetails(classid)
-                  .then(onClassDetails, onError);
 
 }
 }());
