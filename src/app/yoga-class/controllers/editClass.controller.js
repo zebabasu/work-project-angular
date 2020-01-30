@@ -4,33 +4,41 @@
     .controller('EditClassController', EditClassController);
 
 function EditClassController($scope, $location, $routeParams, YogaClassService) {
-  $scope.yogaClass = {};
   $scope.selectedPoses = [];
-
-  $scope.existingPoses = [];
   $scope.classdetails = {};
   $scope.updatedClass = {};
+
   var onClassDetails = function(data){
 
           $scope.classdetails = data;
           YogaClassService.poseList()
                               .then(onPoseList, onError);
           angular.forEach($scope.classdetails, function (value, key) {
-              $scope.existingPoses.push(value.YOGA_POSE_ID);
+              $scope.selectedPoses.push(value.YOGA_POSE_ID);
           });
   };
-  
+
   var onPoseList = function(data){
-          $scope.poseList = data;
+          $scope.masterPoseList = data;
 
   };
   var onError = function(reason){
           $scope.error = reason;
   };
-  $scope.saveClass = function(path, yogaClass, newClassForm){
-      yogaClass.poseIdList = $scope.selectedPoses;
-      if(newClassForm.$valid){
-        YogaClassService.saveClass(yogaClass)
+  $scope.isExistingPose = function(poseid){
+      if($scope.selectedPoses.indexOf(poseid) > -1){
+        return 1;
+      }
+      else{
+        return 0;
+      }
+  };
+  $scope.updateClass = function(path, editClassForm){
+
+      $scope.updatedClass.id = classid;
+      $scope.updatedClass.poseIdList = $scope.selectedPoses;
+      if(editClassForm.$valid){
+        YogaClassService.updateClass($scope.updatedClass)
                         .then(function(response) {
                           $location.path(path +"/"+response);
                         })
@@ -48,10 +56,9 @@ function EditClassController($scope, $location, $routeParams, YogaClassService) 
         else {
           list.push(item);
         }
-
   };
   $scope.cancelClass = function() {
-          $location.path("/classes");
+          $location.path("/class/"+classid);
   };
 
   var classid = $routeParams.id;

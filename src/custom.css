@@ -115,3 +115,11 @@ fieldset {
     min-height: 50px;
 
 }
+.home-button {
+   height: 3rem;
+   width: 4rem;
+ }
+ .home-image {
+   height: 100%;
+   width: 100%;
+ }

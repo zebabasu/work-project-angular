@@ -24,11 +24,15 @@
             })
             .when("/teachers", {
                 templateUrl: "app/yoga-teacher/templates/yoga-teachers.html",
-                controller: "YogaClassController"
+                controller: "YogaTeacherController"
             })
             .when("/class/:id", {
                 templateUrl: "app/yoga-class/templates/yogaClassDetails.html",
                 controller: "ClassDetailsController"
+            })
+            .when("/poses", {
+                templateUrl: "app/yoga-pose/templates/yoga-poses.html",
+                controller: "YogaPoseController"
             })
             .otherwise({redirectTo:"/welcome"});
     });

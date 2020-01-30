@@ -9,29 +9,24 @@
           <fieldset>
             <label class="detailsfont" for="className">Class Name:</label>
 
-            <input class="detailsfont" name="className" id="className" type="text" required ng-model="updatedClass.className" placeholder={{classdetails[0].CLASSNAME}} />
+            <input class="detailsfont" name="className" id="className" type="text" required ng-model="updatedClass.className" value={{classdetails[0].CLASSNAME}} />
 
             <!-- <div id="selectPoses" name="selectPoses" class="panel-body">
-                <div  class="box" ng-repeat="class in classdetails">
-                  <img height="150" width="100" ng-src="app\img\pose\{{ class.IMAGEPATH }}" title="{{class.POSENAME}}"" />
-                  </div>
-            </div> -->
-            <div id="selectPoses" name="selectPoses" class="panel-body">
                 <div class="box" style="margin-left: 35px;" ng-repeat="class in classdetails" >
-                  <md-checkbox ng-checked=isChecked(class.YOGA_POSE_ID) ng-value="class.YOGA_POSE_ID" aria-label="Close" ng-click="toggle(class.YOGA_POSE_ID, existingPoses)">
+                  <md-checkbox ng-checked="isExistingPose(class.YOGA_POSE_ID)" ng-value="class.YOGA_POSE_ID" aria-label="Close" ng-click="toggle(class.YOGA_POSE_ID, existingPoses)">
                   <img height="100" width="75" ng-src="app\img\pose\{{ class.IMAGEPATH }}"
                   </md-checkbox>
                 </div>
 
-            </div>
+            </div> -->
               <br />
               <br />
-                <aria-label class="detailsfont" for="selectPoses">Select Poses:</aria-label>
+                <aria-label class="detailsfont" for="selectPoses">Edit Poses:</aria-label>
                 <br />
                 <br />
               <div id="selectPoses" name="selectPoses" class="panel-body">
-                  <div class="box" style="margin-left: 35px;" ng-repeat="pose in poseList" >
-                    <md-checkbox ng-value="pose.ID" aria-label="Close" ng-click="toggle(pose.ID, selectedPoses)">
+                  <div class="box" style="margin-left: 35px;" ng-repeat="pose in masterPoseList" >
+                    <md-checkbox ng-checked="isExistingPose(pose.ID)" ng-value="pose.ID" aria-label="Close" ng-click="toggle(pose.ID, selectedPoses)">
                     <img height="100" width="75" ng-src="app\img\pose\{{ pose.IMAGEPATH }}"
                     </md-checkbox>
                   </div>
@@ -42,7 +37,7 @@
         <br />
         <br />
         <div >
-          <button class="button" type="submit" ng-disabled="newClassForm.className.$invalid" ng-click="saveClass('class', yogaClass, editClassForm)">Save</button>
+          <button class="button" type="submit" ng-disabled="newClassForm.className.$invalid" ng-click="updateClass('class', editClassForm)">Save</button>
           <button class="button" type="button" ng-click="cancelClass()" >Cancel</button>
         </div>
 
