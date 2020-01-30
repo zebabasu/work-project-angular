@@ -3,13 +3,14 @@
     <div class="container">
       <div class="detailsfontheader">
         Edit Class
+
       </div>
 
       <form name="editClassForm">
           <fieldset>
             <label class="detailsfont" for="className">Class Name:</label>
 
-            <input class="detailsfont" name="className" id="className" type="text" required ng-model="updatedClass.className" value={{classdetails[0].CLASSNAME}} />
+            <input class="detailsfont" name="className" id="className" type="text" required ng-model="updatedClass.className" ng-init=updatedClass.className />
 
             <!-- <div id="selectPoses" name="selectPoses" class="panel-body">
                 <div class="box" style="margin-left: 35px;" ng-repeat="class in classdetails" >

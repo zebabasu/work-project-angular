@@ -11,10 +11,13 @@ function EditClassController($scope, $location, $routeParams, YogaClassService) 
   var onClassDetails = function(data){
 
           $scope.classdetails = data;
+          $scope.updatedClass.className=$scope.classdetails[0].CLASSNAME;
           YogaClassService.poseList()
                               .then(onPoseList, onError);
           angular.forEach($scope.classdetails, function (value, key) {
-              $scope.selectedPoses.push(value.YOGA_POSE_ID);
+              if(value.YOGA_POSE_ID != null){
+                $scope.selectedPoses.push(value.YOGA_POSE_ID);
+              }
           });
   };
 
@@ -35,8 +38,9 @@ function EditClassController($scope, $location, $routeParams, YogaClassService) 
   };
   $scope.updateClass = function(path, editClassForm){
 
-      $scope.updatedClass.id = classid;
+      $scope.updatedClass.id = $routeParams.id;
       $scope.updatedClass.poseIdList = $scope.selectedPoses;
+      
       if(editClassForm.$valid){
         YogaClassService.updateClass($scope.updatedClass)
                         .then(function(response) {
